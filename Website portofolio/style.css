@@ -1,12 +1,24 @@
 /* General styles */
+:root {
+  --main-bg-color: #7d7d7d;
+  --navbar-bg-color: #b5b3b3;
+  --nav-link-color: #333;
+  --nav-link-hover-bg-color: lightcyan;
+  --nav-link-hover-border-radius: 5px;
+  --font-family: Arial, sans-serif;
+  --button-padding: 80px 150px;
+  --button-font-size: 16px;
+  --footer-bg-color: #454242;
+}
+
 body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: Arial, sans-serif;
+  font-family: var(--font-family);
   display: flex;
   flex-direction: column;
-  background-color: #7d7d7d;
+  background-color: var(--main-bg-color);
 }
 
 header, nav, main, footer {
@@ -16,7 +28,7 @@ header, nav, main, footer {
 .navbar {
   display: flex;
   align-items: center;
-  background-color: #b5b3b3;
+  background-color: var(--navbar-bg-color);
   padding: 10px 20px;
 }
 
@@ -43,18 +55,17 @@ header, nav, main, footer {
 }
 
 .nav-links a {
-  color: #333;
+  color: var(--nav-link-color);
   text-decoration: none;
   font-size: 18px;
-  font-family: sans-serif;
   font-weight: bold;
   padding: 5px 10px;
   transition: background-color 0.7s;
 }
 
 .nav-links a:hover {
-  background-color: lightcyan;
-  border-radius: 5px;
+  background-color: var(--nav-link-hover-bg-color);
+  border-radius: var(--nav-link-hover-border-radius);
 }
 
 a {
@@ -64,7 +75,7 @@ a {
   font-size: 18px;
 }
 
-.a2{
+.a2 {
   color: rgb(146, 52, 146);
 }
 
@@ -84,25 +95,24 @@ main {
   margin: 20px 0;
 }
 
-button{
-  background-image: url(images/hobbies.jpeg);
+button {
+  padding: var(--button-padding);
+  font-size: var(--button-font-size);
+  cursor: pointer;
   background-size: cover;
 }
 
-.button-container button {
-  padding: 80px 150px;
-  font-size: 16px;
-  cursor: pointer;
-
-  @if background-image == url(images/hobbies.jpeg) {
-    background-image: url(images/hobbies.jpeg);
-  } @elseif background-image == url(images/portfolio.jpeg) {
-    background-image: url(images/portfolio.jpeg);
-  } @else {
-    background-image: url(images/default.jpeg);
-  }
+button.hobbies {
+  background-image: url(images/hobbies.jpeg);
 }
 
+button.portfolio {
+  background-image: url(images/portfolio.jpeg);
+}
+
+button.default {
+  background-image: url(images/default.jpeg);
+}
 
 article {
   text-align: center;
@@ -110,7 +120,6 @@ article {
 }
 
 /* Mobile and Tablet Styles */
-
 @media only screen and (max-width: 768px) {
   .navbar img {
     height: 40px;
@@ -152,8 +161,9 @@ article {
     flex-direction: column;
   }
 }
+
 footer {
   margin-top: 20px;
   height: 10vh;
-  background-color: #454242;
+  background-color: var(--footer-bg-color);
 }
